@@ -14,9 +14,6 @@
 #     - docker-build-push-multi-arch:     build AND push the docker image
 #     - docker-build-push-multi-arch-dep: build AND push the docker image (and any base images)
 #
-# ex cli) 
-#		make docker-build
-#		make docker-push
 # make 설치 : 
 # 	sudo apt update
 #		sudo apt install make
@@ -48,9 +45,11 @@ CACHE_TAG   ?= $(IMAGE_NAME)
 ARCH ?= linux/amd64
 
 # include build targets from common
+#		make docker-build
 include ../common.mk
 
 # push images in this folder into harbor.starcell.net
+#		make dck-push
 .PHONY: dck-push
 dck-push:
 	@echo "\n\n"
@@ -59,8 +58,5 @@ dck-push:
 	@echo "tag name '$(TAG_NAMES)' ..."
 	@echo "------------------------------------------------------------------------------"
 	@echo ""
-#	 docker tag $(IMAGE_NAME):$(TAG) $(REGISTRY)/$(IMAGE_NAME)
 	docker push $(TAG_NAMES)
-
-# tag name 'starcell.net/kubeflownotebookdck/jupyter-pytorch-cuda-full-sudo:sha-51606c6f476d9ee19b610872fa6e84ab04679ad9'
-# 	starcell.net/kubeflownotebookdck/jupyter-pytorch-cuda-full-sudo   sha-51606c6f476d9ee19b610872fa6e84ab04679ad9
+# 	harbor.starcell.net/kubeflownotebookdck/jupyter-pytorch-cuda-full-sudo   sha-51606c6f476d9ee19b610872fa6e84ab04679ad9
