@@ -25,7 +25,7 @@
 # git hub를 포크해서 사용하므로 위 방식으로 하면 실제 저장소에 없는 값으로 찾게됨
 # docker hub에서 tag 값을 직접 복사해서 사용
 # https://hub.docker.com/r/kubeflownotebookswg/jupyter-pytorch-cuda-full/tags
-GIT_COMMIT     := sha-51606c6f476d9ee19b610872fa6e84ab04679ad9
+GIT_COMMIT     := 51606c6f476d9ee19b610872fa6e84ab04679ad9
 GIT_TREE_STATE := $(shell test -n "`git status --porcelain`" && echo "-dirty" || echo "")
 
 BASE_REGISTRY ?= docker.io/kubeflownotebookswg
