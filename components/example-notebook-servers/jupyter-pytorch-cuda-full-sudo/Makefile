@@ -30,7 +30,7 @@ GIT_COMMIT     := 51606c6f476d9ee19b610872fa6e84ab04679ad9
 GIT_TREE_STATE := $(shell test -n "`git status --porcelain`" && echo "-dirty" || echo "")
 
 BASE_REGISTRY ?= docker.io/kubeflownotebookswg
-REGISTRY ?= starcell.net/kubeflownotebookdck
+REGISTRY ?= harbor.starcell.net/kubeflownotebookdck
 TAG      ?= sha-$(GIT_COMMIT)$(GIT_TREE_STATE)
 
 IMAGE_NAME := jupyter-pytorch-cuda-full-sudo
