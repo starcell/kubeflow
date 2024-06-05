@@ -1,3 +1,6 @@
+### jupyter-pytorch-cuda-full 이미지에 sudo 기능 추가
+### -by npark, 2024/06/04
+
 #
 # This Makefile is templated, the following targets are provided:
 #  - Current Architecture:
@@ -15,13 +18,15 @@
 GIT_COMMIT     := $(shell git rev-parse HEAD)
 GIT_TREE_STATE := $(shell test -n "`git status --porcelain`" && echo "-dirty" || echo "")
 
-REGISTRY ?= docker.io/kubeflownotebookswg
+BASE_REGISTRY ?= docker.io/kubeflownotebookswg
+REGISTRY ?= starcell.net/kubeflownotebookdck
 TAG      ?= sha-$(GIT_COMMIT)$(GIT_TREE_STATE)
 
-IMAGE_NAME := jupyter-pytorch-cuda-full
+IMAGE_NAME := jupyter-pytorch-cuda-full-sudo
 
-BASE_IMAGE         := $(REGISTRY)/jupyter-pytorch-cuda:$(TAG)
-BASE_IMAGE_FOLDERS := jupyter-pytorch-cuda
+# BASE_IMAGE         := $(REGISTRY)/jupyter-pytorch-cuda-full:$(TAG)
+BASE_IMAGE         := $(BASE_REGISTRY)/jupyter-pytorch-cuda-full:$(TAG)
+BASE_IMAGE_FOLDERS := jupyter-pytorch-cuda-full
 
 # we use a separate registry-type cache to keep the main registry clean
 # https://docs.docker.com/build/cache/backends/
