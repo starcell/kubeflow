@@ -57,6 +57,18 @@ docker-build-dep--%:
 #  docker-push
 # ------------------------------------------------------------------------------
 
+# push images in this folder into harbor.starcell.net
+.PHONY: dck-push
+docker-push:
+	@echo "\n\n"
+	@echo "------------------------------------------------------------------------------"
+	@echo "Pushing '$(IMAGE_NAME)' image..."
+	@echo "tag name '$(TAG_NAMES)' ..."
+	@echo "------------------------------------------------------------------------------"
+	@echo ""
+	docker tag $(IMAGE_NAME) $(REGISTRY)/$(IMAGE_NAME)
+	docker push $(REGISTRY)/$(IMAGE_NAME)
+
 # push images in this folder
 .PHONY: docker-push
 docker-push:
