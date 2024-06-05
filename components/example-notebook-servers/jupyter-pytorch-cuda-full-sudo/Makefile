@@ -60,4 +60,4 @@ docker-push:
 	@echo "------------------------------------------------------------------------------"
 	@echo ""
 	docker tag $(IMAGE_NAME) $(REGISTRY)/$(IMAGE_NAME)
-	docker push $(TAG_NAMES)
+	docker push $(REGISTRY)/$(IMAGE_NAME)
