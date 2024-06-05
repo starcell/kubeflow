@@ -59,6 +59,5 @@ dck-push:
 	@echo "tag name '$(TAG_NAMES)' ..."
 	@echo "------------------------------------------------------------------------------"
 	@echo ""
-	docker tag $(IMAGE_NAME) $(REGISTRY)/$(IMAGE_NAME)
+	docker tag $(IMAGE_NAME)$(TAG) $(REGISTRY)/$(IMAGE_NAME)
 	docker push $(REGISTRY)/$(IMAGE_NAME)
-	
