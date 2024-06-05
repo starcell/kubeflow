@@ -50,3 +50,15 @@ ARCH ?= linux/amd64
 # include build targets from common
 include ../common.mk
 
+# push images in this folder into harbor.starcell.net
+.PHONY: dck-push
+dck-push:
+	@echo "\n\n"
+	@echo "------------------------------------------------------------------------------"
+	@echo "Pushing '$(IMAGE_NAME)' image..."
+	@echo "tag name '$(TAG_NAMES)' ..."
+	@echo "------------------------------------------------------------------------------"
+	@echo ""
+	docker tag $(IMAGE_NAME) $(REGISTRY)/$(IMAGE_NAME)
+	docker push $(REGISTRY)/$(IMAGE_NAME)
+	
