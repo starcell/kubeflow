@@ -16,6 +16,7 @@
 #
 # ex cli) 
 #		make docker-build
+#		make docker-push
 # make 설치 : 
 # 	sudo apt update
 #		sudo apt install make
@@ -48,3 +49,15 @@ ARCH ?= linux/amd64
 
 # include build targets from common
 include ../common.mk
+
+# push images in this folder
+.PHONY: dck-push
+docker-push:
+	@echo "\n\n"
+	@echo "------------------------------------------------------------------------------"
+	@echo "Pushing '$(IMAGE_NAME)' image..."
+	@echo "tag name '$(TAG_NAMES)' ..."
+	@echo "------------------------------------------------------------------------------"
+	@echo ""
+	docker tag $(IMAGE_NAME) $(REGISTRY)/$(IMAGE_NAME)
+	docker push $(TAG_NAMES)
