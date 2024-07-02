@@ -9,7 +9,7 @@ example notebook servers의 이미지를 추가하기 위해서
 ## 컨테이너 이미지 저장소  
 
 
-DCK에서 구축한 클러스터 내의 Harbor Registry를 디폴트 저장소로 사용
+DCK에서 구축한 클러스터 내의 Harbor Registry를 디폴트 저장소로 사용   
 default registry : harbor.starcell.net/kubeflownotebookdck
 
 
